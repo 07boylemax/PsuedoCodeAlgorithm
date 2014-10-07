@@ -1,0 +1,6 @@
+LOAD MENU ALGORITHM
+
+MakeVisible MenuBackground
+MakeVisible MenuButtons
+Initialise KnightPosition
+Initialise EnemyPositions
