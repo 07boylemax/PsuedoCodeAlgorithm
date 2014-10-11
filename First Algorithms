@@ -1,10 +1,31 @@
-LOAD MENU ALGORITHM
+   LOAD MENU ALGORITHM
 
+  /Menu
 MakeVisible MenuBackground
 MakeVisible MenuButtons
 Initialise KnightPosition
 Initialise EnemyPositions
+  Knight Movement = 0
+  Enemy Movement = 0
 
+ /View Power-up Key
+Menu = Visible
+  If btnPowerup = Clicked
+    Display MenuPowerup
+  Else
+  
+ /Go Back
+If MenuPowerup = Visible
+  If btnGoBack = Clicked
+    Display MenuBackground
+    Display MenuButtons
+  Else
+Else
 
+/Make Menu Invisible
+  Hide MenuBackground
+  Hide MenuButtons
+  
+/Load Knight Positions, Power-ups, Enemy positions.
 
-I FIND THIS STUFF HARD OKAY!!
+Place pictureboxKnight = X:0 Y:0
