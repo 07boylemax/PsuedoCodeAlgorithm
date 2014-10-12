@@ -25,7 +25,13 @@ Else
 /Make Menu Invisible
   Hide MenuBackground
   Hide MenuButtons
+   If LevelBackground = Invisible
+      Make LevelBackground Visible
+   Else
+    
   
 /Load Knight Positions, Power-ups, Enemy positions.
 
 Place pictureboxKnight = X:0 Y:0
+Place pictureboxEnemyX
+
