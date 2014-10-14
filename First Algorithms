@@ -44,44 +44,73 @@ Load ArrayPowerUp
  
 /Side Scrolling - Keep Camera On Knight
 
--------
+KnightPlacement = X:0 Y:0
+When LeftKey Pressed
+  Move screen Right
+When RightKey Pressed
+  Move Screen Left
 
 /Side Scrolling - Keep Enemies from clipping out of screen
 
--------
+--
 
 /Collision Detection - Enemy - Other Enemies
 
-/Collision Detection - Enemy - Walls
+If EnemySprite1 = Facing Left
+  If EnemySprite2 = Facing Right
+    When EnemySprite1 Touches EnemySprite2
+      EnemySprite1 Face Right
+      EnemySprite2 Face Left
+      
+If EnemySprite1 = Facing right
+  If EnemySprite2 = Facing left
+    When EnemySprite1 Touches EnemySprite2
+      EnemySprite1 Face left
+      EnemySprite2 Face right
 
-/Collision Detection - Knight - Other Enemies
 
-/Collision Detection - Knight - Walls
+ /Collision Detection - Enemy - Walls
+ 
+ While EnemySprite1 = Moving
+   If EnemySprite1 reaches X:(x) Y:(x)
+     Change Sprite Animation
+     Change Sprite Direction
+   Else
+ Else
 
-/Enemy Movement - Walking Repetition
+ /Collision Detection - Knight - Other Enemies
 
-/Enemy Movement - Jumping Repetition
+ /Collision Detection - Knight - Walls
 
-/Enemy Movememnt - Jumping Repetition - Gravity Emulation
+ /Enemy Movement - Walking Repetition
 
-/Knight Movement - Left Movement
+While Enemy Alive = 1
+  EnemyMovement = Speed(x)
+Else
+  EnemyMovement = Speed(0)
 
-/Knight Movement - Right Movement
+ /Enemy Movement - Jumping Repetition
 
-/Knight Movement - Jump Height
+ /Enemy Movememnt - Jumping Repetition - Gravity Emulation
 
-/Knight Movement - Gravity Emulation
+ /Knight Movement - Left Movement
 
-/Level Display - Lives Display
+ /Knight Movement - Right Movement
 
-/Level Display - Health Display
+ /Knight Movement - Jump Height
 
-/Mechanics - Health System
+ /Knight Movement - Gravity Emulation
 
-/Mechanics - PowerUp Systems - Invincibility
+ /Level Display - Lives Display
 
-/Mechanics - Powerup Systems - Increased Health
+ /Level Display - Health Display
 
-/Mechanics - PowerUp Systems - Increased Speed
+ /Mechanics - Health System
 
-/Mechanics - PowerUp Systems - Increased Jump Height
+ /Mechanics - PowerUp Systems - Invincibility
+
+ /Mechanics - Powerup Systems - Increased Health
+
+ /Mechanics - PowerUp Systems - Increased Speed
+
+ /Mechanics - PowerUp Systems - Increased Jump Height
