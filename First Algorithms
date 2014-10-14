@@ -1,6 +1,7 @@
    LOAD MENU ALGORITHM
 
   /Menu
+
 MakeVisible MenuBackground
 MakeVisible MenuButtons
 Initialise KnightPosition
@@ -9,12 +10,14 @@ Initialise EnemyPositions
   Enemy Movement = 0
 
  /View Power-up Key
+
 Menu = Visible
   If btnPowerup = Clicked
     Display MenuPowerup
   Else
   
  /Go Back
+
 If MenuPowerup = Visible
   If btnGoBack = Clicked
     Display MenuBackground
@@ -23,6 +26,7 @@ If MenuPowerup = Visible
 Else
 
 /Make Menu Invisible
+ 
   Hide MenuBackground
   Hide MenuButtons
    If LevelBackground = Invisible
@@ -33,5 +37,51 @@ Else
 /Load Knight Positions, Power-ups, Enemy positions.
 
 Place pictureboxKnight = X:0 Y:0
-Place pictureboxEnemyX
+Load ArrayEnemyLocations
+  Place EnemyPositions
+Load ArrayPowerUp
+  Place PowerUpPositions
+ 
+/Side Scrolling - Keep Camera On Knight
 
+-------
+
+/Side Scrolling - Keep Enemies from clipping out of screen
+
+-------
+
+/Collision Detection - Enemy - Other Enemies
+
+/Collision Detection - Enemy - Walls
+
+/Collision Detection - Knight - Other Enemies
+
+/Collision Detection - Knight - Walls
+
+/Enemy Movement - Walking Repetition
+
+/Enemy Movement - Jumping Repetition
+
+/Enemy Movememnt - Jumping Repetition - Gravity Emulation
+
+/Knight Movement - Left Movement
+
+/Knight Movement - Right Movement
+
+/Knight Movement - Jump Height
+
+/Knight Movement - Gravity Emulation
+
+/Level Display - Lives Display
+
+/Level Display - Health Display
+
+/Mechanics - Health System
+
+/Mechanics - PowerUp Systems - Invincibility
+
+/Mechanics - Powerup Systems - Increased Health
+
+/Mechanics - PowerUp Systems - Increased Speed
+
+/Mechanics - PowerUp Systems - Increased Jump Height
