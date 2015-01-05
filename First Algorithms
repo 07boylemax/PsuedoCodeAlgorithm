@@ -119,31 +119,40 @@ Else
   Jump = 0
 
 
-
-
-
  /Enemy Movememnt - Jumping Repetition - Gravity Emulation
 
 
-
-
-
+Private Sub Timer2_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer2.Tick
+Dim Int As Integer
+Int = 0
+Int += 1
+Select Case Int
+Case 1
+Knight.Top -= 8
+Case 2
+Knight.Top -= 5
+Case 3
+Knight.Top -= 3
+Case 4
+Knight.Top += 3
+Case 5
+Knight.Top += 5
+Case 6
+Knight.Top += 8
+Int = 0
+Timer2.Enabled = False
+End Select
 
  /Knight Movement - Movement
 
 Case Keys.Left
 	Pos.X -= 2
 	Dir = "left"
-Case Keys.Up
-	Pos.Y -= 2
-	Dir = "up"
 Case Keys.Right
 	Pos.X += 2
 	Dir = "right"
-Case Keys.Down
-	Pos.Y += 2
-	Dir = "down"
-
+Case Keys.up
+	TimerJump = True
 
 
  /Mechanics - PowerUp Systems - Invincibility
@@ -175,5 +184,49 @@ If picKnight.Bounds.IntersectsWith(picSpeed.Bounds) Then
  /Mechanics - PowerUp Systems - Increased Jump Height
 
 If picKnight.Bounds.IntersectsWith(picJump.Bounds) Then
-	
+	Private Sub Timer2_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer2.Tick
+Dim Int As Integer
+Int = 0
+Int += 1
+Select Case Int
+Case 1
+Knight.Top -= 9
+Case 2
+Knight.Top -= 6
+Case 3
+Knight.Top -= 4
+Case 4
+Knight.Top += 4
+Case 5
+Knight.Top += 6
+Case 6
+Knight.Top += 9
+Int = 0
+Timer2.Enabled = False
+End Select
+	Timer = True
+	When Timer = 0
+		Private Sub Timer2_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer2.Tick
+Dim Int As Integer
+Int = 0
+Int += 1
+Select Case Int
+Case 1
+Knight.Top -= 8
+Case 2
+Knight.Top -= 5
+Case 3
+Knight.Top -= 3
+Case 4
+Knight.Top += 3
+Case 5
+Knight.Top += 5
+Case 6
+Knight.Top += 8
+Int = 0
+Timer2.Enabled = False
+End Select
+
+End If
+
 
