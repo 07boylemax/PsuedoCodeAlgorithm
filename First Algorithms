@@ -50,10 +50,6 @@ When LeftKey Pressed
 When RightKey Pressed
   Move Screen Left
 
-/Side Scrolling - Keep Enemies from clipping out of screen
-
---
-
 /Collision Detection - Enemy - Other Enemies
 
 If EnemySprite1 = Facing Left
@@ -80,37 +76,104 @@ If EnemySprite1 = Facing right
 
  /Collision Detection - Knight - Other Enemies
 
+ If picKnight.Bounds.IntersectsWith(picEnemySprite) on Y Then
+   picEnemySprite hide
+ Else
+ If picKnight.Bounds.IntersectsWith(picEnemySprite) on x Then
+   Health = Health - 1
+   picKnight forcejump
+
+
+
+
  /Collision Detection - Knight - Walls
 
- /Enemy Movement - Walking Repetition
+Dim KnightRight as Integer
+Dim KnightLeft as Integer
+Dim KnightTop as Integer
+Dim KnightBottom as Integer
+KnightRight = picKnight.left + picKnight.Width
+KnightLeft = picKnight.left
+KnightTop = picKnight.top
+KnightBottom = picKnight.top + picKnight.Height
+If (KnightRight >= WallLeft) And (KnightRight <= WallRight) Then
+  Case Keys.right
+	Pos.x += 0
+	Dir = "right"
 
-While Enemy Alive = 1
+
+/Enemy Movement - Walking Repetition
+
+While EnemyAlive = 1
   EnemyMovement = Speed(x)
 Else
   EnemyMovement = Speed(0)
 
  /Enemy Movement - Jumping Repetition
 
+While EnemyAlive = 1
+  EnemyMovement = Speed(x)
+  Jump = 1
+Else
+  EnemyMovement = Speed(0)
+  Jump = 0
+
+
+
+
+
  /Enemy Movememnt - Jumping Repetition - Gravity Emulation
 
- /Knight Movement - Left Movement
 
- /Knight Movement - Right Movement
 
- /Knight Movement - Jump Height
 
- /Knight Movement - Gravity Emulation
 
- /Level Display - Lives Display
 
- /Level Display - Health Display
+ /Knight Movement - Movement
 
- /Mechanics - Health System
+Case Keys.Left
+	Pos.X -= 2
+	Dir = "left"
+Case Keys.Up
+	Pos.Y -= 2
+	Dir = "up"
+Case Keys.Right
+	Pos.X += 2
+	Dir = "right"
+Case Keys.Down
+	Pos.Y += 2
+	Dir = "down"
+
+
 
  /Mechanics - PowerUp Systems - Invincibility
 
+ If picKnight.Bounds.IntersectsWith(picInvincibility.Bounds) Then
+	picInvincibility.Hide
+	TempHealth = Health
+	Health = 1000
+	Timer = True
+	When Timer = 0
+		Health = TempHealth
+	Else
+
  /Mechanics - Powerup Systems - Increased Health
+
+If picKnight.Bounds.IntersectsWith(picHealth.Bounds) Then
+	picHealth.Hide
+	Health = Health + 2
 
  /Mechanics - PowerUp Systems - Increased Speed
 
+If picKnight.Bounds.IntersectsWith(picSpeed.Bounds) Then
+	picSpeed.Hide
+	Speed = Speed + 2
+	Timer = True
+	When Timer = 0
+		Speed = Speed - 2
+
  /Mechanics - PowerUp Systems - Increased Jump Height
+
+If picKnight.Bounds.IntersectsWith(picJump.Bounds) Then
+	
+
