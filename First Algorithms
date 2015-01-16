@@ -54,7 +54,7 @@ When RightKey Pressed
 
 If EnemySprite1 = Facing Left
   If EnemySprite2 = Facing Right
-    When EnemySprite1 Touches EnemySprite2
+    When EnemySprite1 Touches EnemySprite2            // Are you only planning on having 2 enemies??
       EnemySprite1 Face Right
       EnemySprite2 Face Left
       
@@ -68,8 +68,8 @@ If EnemySprite1 = Facing right
  /Collision Detection - Enemy - Walls
  
  While EnemySprite1 = Moving
-   If EnemySprite1 reaches X:(x) Y:(x)
-     Change Sprite Animation
+   If EnemySprite1 reaches X:(x) Y:(x)                  // you should have an array to hold the enemies - DIM Enemy(0 to [however enemies you are having])
+     Change Sprite Animation                            // you can look at my enemy array to get an idea
      Change Sprite Direction
    Else
  Else
@@ -110,7 +110,7 @@ If (KnightLeft >= WallRight) And (KnightLeft <= WallLeft) Then
 While EnemyAlive = 1
   EnemyMovement = Speed(x)
 Else
-  EnemyMovement = Speed(0)
+  EnemyMovement = Speed(0)                 // Is there a speed subroutine? Because that's what you are referencing here
 
  /Enemy Movement - Jumping Repetition
 
@@ -170,7 +170,7 @@ Case Keys.up
 	TempHealth = Health
 	Health = 1000
 	Timer = True
-	When Timer = 0
+	When Timer = 0                                      //Is this meant to count down from something? timer = 0 would happen instantly or something
 		Health = TempHealth
 	Else
 
