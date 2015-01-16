@@ -100,7 +100,10 @@ If (KnightRight >= WallLeft) And (KnightRight <= WallRight) Then
   Case Keys.right
 	Pos.x += 0
 	Dir = "right"
-
+If (KnightLeft >= WallRight) And (KnightLeft <= WallLeft) Then
+  Case Keys.left
+  	pos.x +=0
+	Dir = "Left"
 
 /Enemy Movement - Walking Repetition
 
