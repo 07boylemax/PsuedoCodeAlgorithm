@@ -67,8 +67,8 @@ If EnemySprite(x) = Facing right
 
  /Collision Detection - Enemy - Walls
  While EnemySprite(x) = Moving
-   If EnemySprite reaches X:(x) Y:(x)                  // you should have an array to hold the enemies - DIM Enemy(0 to [however enemies you are having])
-     Change Sprite Animation                            // you can look at my enemy array to get an idea
+   If EnemySprite reaches X:(x) Y:(x)                  
+     Change Sprite Animation                            
      Change Sprite Direction
    Else
  Else
@@ -109,7 +109,7 @@ If (KnightLeft >= WallRight) And (KnightLeft <= WallLeft) Then
 While EnemyAlive = 1
   EnemyMovement = Speed(x)
 Else
-  EnemyMovement = Speed(0)                 // Is there a speed subroutine? Because that's what you are referencing here
+  EnemyMovement = Speed(0)                 
 
  /Enemy Movement - Jumping Repetition
 
