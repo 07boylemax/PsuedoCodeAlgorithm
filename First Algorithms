@@ -52,17 +52,17 @@ When RightKey Pressed
 
 /Collision Detection - Enemy - Other Enemies
 
-If EnemySprite1 = Facing Left
-  If EnemySprite2 = Facing Right
-    When EnemySprite1 Touches EnemySprite2            // Are you only planning on having 2 enemies??
-      EnemySprite1 Face Right
-      EnemySprite2 Face Left
+If EnemySprite(x) = Facing Left
+  If EnemySprite(y) = Facing Right
+    When EnemySprite(X) Touches EnemySprite(y)            // Are you only planning on having 2 enemies??
+      EnemySprite(x) Face Right
+      EnemySprite(y) Face Left
       
-If EnemySprite1 = Facing right
-  If EnemySprite2 = Facing left
-    When EnemySprite1 Touches EnemySprite2
-      EnemySprite1 Face left
-      EnemySprite2 Face right
+If EnemySprite(x) = Facing right
+  If EnemySprite(y) = Facing left
+    When EnemySprite(X) Touches EnemySprite(y)
+      EnemySprite(X) Face left
+      EnemySprite2(Y) Face right
 
 
  /Collision Detection - Enemy - Walls
