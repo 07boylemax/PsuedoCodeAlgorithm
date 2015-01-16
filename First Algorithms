@@ -126,25 +126,30 @@ Else
 
 
 Private Sub Timer2_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer2.Tick
-Dim Int As Integer
-Int = 0
-Int += 1
-Select Case Int
-Case 1
-Knight.Top -= 8
-Case 2
-Knight.Top -= 5
-Case 3
-Knight.Top -= 3
-Case 4
-Knight.Top += 3
-Case 5
-Knight.Top += 5
-Case 6
-Knight.Top += 8
-Int = 0
-Timer2.Enabled = False
-End Select
+	If GlobalInt = 0
+		Int += 1
+	Else
+EndIf
+	If GlobalInt => 1
+		Select Case Global Int
+		Case 1
+		Knight.Top -= 8
+		Case 2
+		Knight.Top -= 5
+		Case 3
+		Knight.Top -= 3
+		Case 4
+		Knight.Top += 3
+		Case 5
+		Knight.Top += 5
+		Case 6
+		Knight.Top += 8
+		GLobalInt = 0
+		Timer2.Enabled = False
+		End Select
+		GlobalInt += 1
+	EndIf
+		
 
  /Knight Movement - Movement
 
