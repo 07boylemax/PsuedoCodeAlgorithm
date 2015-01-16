@@ -54,7 +54,7 @@ When RightKey Pressed
 
 If EnemySprite(x) = Facing Left
   If EnemySprite(y) = Facing Right
-    When EnemySprite(X) Touches EnemySprite(y)            // Are you only planning on having 2 enemies??
+    When EnemySprite(X) Touches EnemySprite(y)            
       EnemySprite(x) Face Right
       EnemySprite(y) Face Left
       
@@ -66,9 +66,8 @@ If EnemySprite(x) = Facing right
 
 
  /Collision Detection - Enemy - Walls
- 
- While EnemySprite1 = Moving
-   If EnemySprite1 reaches X:(x) Y:(x)                  // you should have an array to hold the enemies - DIM Enemy(0 to [however enemies you are having])
+ While EnemySprite(x) = Moving
+   If EnemySprite reaches X:(x) Y:(x)                  // you should have an array to hold the enemies - DIM Enemy(0 to [however enemies you are having])
      Change Sprite Animation                            // you can look at my enemy array to get an idea
      Change Sprite Direction
    Else
@@ -130,6 +129,27 @@ Private Sub Timer2_Tick(ByVal sender As System.Object, ByVal e As System.EventAr
 		Int += 1
 	Else
 EndIf
+If JumpPowerUp = 1
+	If GlobalInt => 1
+		Select Case Global Int
+		Case 1
+		Knight.Top -= 9
+		Case 2
+		Knight.Top -= 6
+		Case 3
+		Knight.Top -= 4
+		Case 4
+		Knight.Top += 4
+		Case 5
+		Knight.Top += 6
+		Case 6
+		Knight.Top += 9
+		GLobalInt = 0
+		Timer2.Enabled = False
+		End Select
+		GlobalInt += 1
+	Else
+If JumpPowerUp = 0
 	If GlobalInt => 1
 		Select Case Global Int
 		Case 1
@@ -148,8 +168,8 @@ EndIf
 		Timer2.Enabled = False
 		End Select
 		GlobalInt += 1
-	EndIf
-		
+	Else
+
 
  /Knight Movement - Movement
 
@@ -170,7 +190,7 @@ Case Keys.up
 	TempHealth = Health
 	Health = 1000
 	Timer = True
-	When Timer = 0                                      //Is this meant to count down from something? timer = 0 would happen instantly or something
+	When Timer = 0                                     
 		Health = TempHealth
 	Else
 
@@ -185,56 +205,15 @@ If picKnight.Bounds.IntersectsWith(picHealth.Bounds) Then
 If picKnight.Bounds.IntersectsWith(picSpeed.Bounds) Then
 	picSpeed.Hide
 	Speed = Speed + 2
-	Timer = True
+	PowerUpTimer = True
 	When Timer = 0
 		Speed = Speed - 2
 
  /Mechanics - PowerUp Systems - Increased Jump Height
 
-If picKnight.Bounds.IntersectsWith(picJump.Bounds) Then
-	Private Sub Timer2_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer2.Tick
-Dim Int As Integer
-Int = 0
-Int += 1
-Select Case Int
-Case 1
-Knight.Top -= 9
-Case 2
-Knight.Top -= 6
-Case 3
-Knight.Top -= 4
-Case 4
-Knight.Top += 4
-Case 5
-Knight.Top += 6
-Case 6
-Knight.Top += 9
-Int = 0
-Timer2.Enabled = False
-End Select
-	Timer = True
+If picKnight.Bounds.IntersectsWith(picJump.bounds) Then
+	picJump.hide
+	JumpPowerUp = 1
+	PowerUpTimer = True
 	When Timer = 0
-		Private Sub Timer2_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer2.Tick
-Dim Int As Integer
-Int = 0
-Int += 1
-Select Case Int
-Case 1
-Knight.Top -= 8
-Case 2
-Knight.Top -= 5
-Case 3
-Knight.Top -= 3
-Case 4
-Knight.Top += 3
-Case 5
-Knight.Top += 5
-Case 6
-Knight.Top += 8
-Int = 0
-Timer2.Enabled = False
-End Select
-
-End If
-
-
+		JumpPowerUp = 0
